@@ -45,10 +45,10 @@
         android:textSize="18sp"
         android:layout_marginBottom="20dp" />
     <Button
-        android:id="@+id/btnKembali"
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kembali"
+        android:text="Logout"
         android:backgroundTint="@color/black"
         app:cornerRadius="0dp"/>
 </LinearLayout>
