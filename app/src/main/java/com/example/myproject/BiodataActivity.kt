@@ -13,6 +13,8 @@ class BiodataActivity : AppCompatActivity() {
     private lateinit var txtUsername: TextView
     private lateinit var btnLogout: Button
     private lateinit var btnBukaPeta: Button
+    private lateinit var btnRoomDb: Button
+    private lateinit var btnRestApi: Button
     private lateinit var switchDarkMode: SwitchCompat
     private lateinit var pref: SharedPreferences
     private lateinit var settingsPref: SharedPreferences
@@ -20,29 +22,24 @@ class BiodataActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContentView(R.layout.activity_biodata)
 
         txtUsername = findViewById(R.id.txtUsername)
         btnLogout = findViewById(R.id.btnLogout)
         btnBukaPeta = findViewById(R.id.btnBukaPeta)
+        btnRoomDb = findViewById(R.id.btnRoomDb)
+        btnRestApi = findViewById(R.id.btnRestApi)
         switchDarkMode = findViewById(R.id.switchDarkMode)
 
-        // 1. Inisialisasi Shared Preferences untuk Login
         pref = getSharedPreferences("LOGIN_PREF", MODE_PRIVATE)
-
-        // 2. Inisialisasi Shared Preferences untuk Pengaturan (Dark Mode)
         settingsPref = getSharedPreferences("SETTINGS_PREF", MODE_PRIVATE)
 
-        // 3. Ambil data username dari SharedPreferences
         val username = pref.getString("username", "-")
         txtUsername.text = "Username: $username"
 
-        // 4. Set status awal switch dark mode berdasarkan data SharedPreferences
         val isDarkMode = settingsPref.getBoolean("isDarkMode", false)
         switchDarkMode.isChecked = isDarkMode
 
-        // 5. Terapkan Logika Toggle Dark Mode
         switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
             settingsPref.edit().putBoolean("isDarkMode", isChecked).apply()
             if (isChecked) {
@@ -52,18 +49,22 @@ class BiodataActivity : AppCompatActivity() {
             }
         }
 
-        // 6. Terapkan Logika Logout
         btnLogout.setOnClickListener {
-            // Hapus semua data yang tersimpan di SharedPreferences (Logout)
             pref.edit().clear().apply()
-
-            // Kembali ke halaman Login (MainActivity)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
         btnBukaPeta.setOnClickListener {
             startActivity(Intent(this, MapsActivity::class.java))
+        }
+
+        btnRoomDb.setOnClickListener {
+            startActivity(Intent(this, NoteActivity::class.java))
+        }
+
+        btnRestApi.setOnClickListener {
+            startActivity(Intent(this, PostActivity::class.java))
         }
     }
 }

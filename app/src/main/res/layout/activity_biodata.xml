@@ -61,10 +61,29 @@
         app:cornerRadius="0dp"/>
 
     <Button
+        android:id="@+id/btnRoomDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Room Database"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="0dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnRestApi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REST API"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="0dp"
+        android:layout_marginTop="8dp"/>
+
+    <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:backgroundTint="@color/black"
-        app:cornerRadius="0dp"/>
+        app:cornerRadius="0dp"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
