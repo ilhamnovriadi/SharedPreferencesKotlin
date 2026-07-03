@@ -12,6 +12,7 @@ import androidx.appcompat.widget.SwitchCompat
 class BiodataActivity : AppCompatActivity() {
     private lateinit var txtUsername: TextView
     private lateinit var btnLogout: Button
+    private lateinit var btnBukaPeta: Button
     private lateinit var switchDarkMode: SwitchCompat
     private lateinit var pref: SharedPreferences
     private lateinit var settingsPref: SharedPreferences
@@ -24,6 +25,7 @@ class BiodataActivity : AppCompatActivity() {
 
         txtUsername = findViewById(R.id.txtUsername)
         btnLogout = findViewById(R.id.btnLogout)
+        btnBukaPeta = findViewById(R.id.btnBukaPeta)
         switchDarkMode = findViewById(R.id.switchDarkMode)
 
         // 1. Inisialisasi Shared Preferences untuk Login
@@ -58,6 +60,10 @@ class BiodataActivity : AppCompatActivity() {
             // Kembali ke halaman Login (MainActivity)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+
+        btnBukaPeta.setOnClickListener {
+            startActivity(Intent(this, MapsActivity::class.java))
         }
     }
 }
